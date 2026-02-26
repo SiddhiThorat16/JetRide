@@ -1,32 +1,59 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import { SignInButton, SignUpButton, SignOutButton, UserButton, SignedIn, SignedOut } from '@clerk/clerk-react'
-import { useEffect } from 'react'
-
-function Home() {
-  return (
-    <div className="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
-      <div className="text-center text-white">
-        <h1 className="text-6xl font-bold mb-8">Welcome to JetRide 🚀</h1>
-        <div className="space-x-4">
-          <SignedOut>
-            <SignInButton />
-            <SignUpButton />
-          </SignedOut>
-          <SignedIn>
-            <SignOutButton />
-            <UserButton />
-          </SignedIn>
-        </div>
-      </div>
-    </div>
-  )
-}
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { SignedIn, SignedOut, RedirectToSignIn } from '@clerk/clerk-react'
+import Home from './pages/Home'
+import Dashboard from './pages/Dashboard'
+import Profile from './pages/Profile'
 
 export default function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* Landing - only when signed OUT */}
+        <Route 
+          path="/" 
+          element={
+            <SignedOut>
+              <Home />
+            </SignedOut>
+          } 
+        />
+        
+        {/* Protected routes - only when signed IN */}
+        <Route 
+          path="/dashboard" 
+          element={
+            <SignedIn>
+              <Dashboard />
+            </SignedIn>
+          } 
+        />
+        
+        <Route 
+          path="/profile" 
+          element={
+            <SignedIn>
+              <Profile />
+            </SignedIn>
+          } 
+        />
+        
+        {/* Auth redirects */}
+        <Route path="/sign-in/*" element={<RedirectToSignIn />} />
+        <Route path="/sign-up/*" element={<RedirectToSignIn />} />
+        
+        {/* Catch all - redirect to dashboard if signed in, home if not */}
+        <Route 
+          path="*" 
+          element={
+            <SignedIn>
+              <Navigate to="/dashboard" replace />
+            </SignedIn>
+            ||
+            <SignedOut>
+              <Navigate to="/" replace />
+            </SignedOut>
+          } 
+        />
       </Routes>
     </Router>
   )
