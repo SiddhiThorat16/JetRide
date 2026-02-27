@@ -34,6 +34,16 @@ export default function Nav() {
             >
               Profile
             </Link>
+            <Link 
+              to="/driver-dashboard" 
+              className={`px-3 py-2 rounded-md font-medium transition-colors ${
+                location.pathname === '/driver-dashboard' 
+                  ? 'bg-green-100 text-green-700' 
+                  : 'text-gray-700 hover:text-green-600'
+              }`}
+            >
+              Driver
+            </Link>
             
             <UserButton />
             <SignOutButton>

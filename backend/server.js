@@ -6,6 +6,7 @@ require('dotenv').config();
 const app = express();
 app.use(cors({ origin: 'http://localhost:5173' }));
 app.use('/api/rides', require('./routes/rides'));
+app.use('/api/drivers', require('./routes/drivers'));
 
 app.use(express.json());
 
