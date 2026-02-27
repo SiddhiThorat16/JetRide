@@ -3,6 +3,7 @@ import { SignedIn, SignedOut, RedirectToSignIn } from '@clerk/clerk-react'
 import Home from './pages/Home'
 import Dashboard from './pages/Dashboard'
 import Profile from './pages/Profile'
+import BookRide from './pages/BookRide'
 
 export default function App() {
   return (
@@ -37,6 +38,15 @@ export default function App() {
           } 
         />
         
+        <Route 
+          path="/book-ride" 
+          element={
+            <SignedIn>
+              <BookRide />
+            </SignedIn>
+          } 
+        />
+
         {/* Auth redirects */}
         <Route path="/sign-in/*" element={<RedirectToSignIn />} />
         <Route path="/sign-up/*" element={<RedirectToSignIn />} />

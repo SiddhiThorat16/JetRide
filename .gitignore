@@ -1,20 +1,22 @@
 # Dependencies
-node_modules/
-frontend/node_modules/
-backend/node_modules/
+**/node_modules/
+/frontend/node_modules/
+/backend/node_modules/
 
 # Production builds
 dist/
 frontend/dist/
+frontend/build/
 backend/dist/
-build/
 
-# Environment variables
+# Environment variables (API keys)
 .env
 .env.local
 .env.*.local
 frontend/.env
+frontend/.env.local
 backend/.env
+backend/.env.local
 
 # Logs
 *.log
@@ -22,6 +24,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
+.pnpm-debug.log*
 
 # Runtime data
 pids
@@ -29,18 +32,17 @@ pids
 *.seed
 *.pid.lock
 
-# Coverage directory used by tools like istanbul
+# Coverage
 coverage/
 *.lcov
-
-# nyc test coverage
 .nyc_output
 
-# Vite cache
+# Vite
 .cache/
 frontend/.vite/
+frontend/dist/
 
-# OS generated files
+# OS files
 .DS_Store
 .DS_Store?
 ._*
@@ -48,21 +50,38 @@ frontend/.vite/
 .Trashes
 ehthumbs.db
 Thumbs.db
+Thumbs.db.*
 
-# Editor directories
+# Editor
 .vscode/
 .idea/
 *.swp
 *.swo
 *~
 
-# MongoDB local files
-mongod.lock
-*.mongodb
+# IDE
+.vscode/settings.json
+.idea/
+*.code-workspace
 
-# Temporary folders
+# MongoDB
+data/
+mongod.lock
+
+# Temporary
 tmp/
 temp/
+.DS_Store
 
-# Clerk dev server (if used)
-.clerk/
+# Google Maps/Service Workers (Day 4+)
+sw.js
+*.map
+public/sw.js
+
+# OS generated
+Desktop.ini
+
+# JetRide specific
+.DS_Store
+*.log
+.env*

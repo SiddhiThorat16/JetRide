@@ -1,4 +1,5 @@
 import Nav from '../layout/Nav'
+import { Link } from 'react-router-dom'
 
 export default function Dashboard() {
   return (
@@ -35,9 +36,12 @@ export default function Dashboard() {
           <div className="space-y-6">
             <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-xl shadow-sm p-8">
               <h3 className="text-lg font-semibold mb-4">Book New Ride</h3>
-              <button className="w-full bg-white text-blue-600 font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors">
-                Book Now
-              </button>
+              <Link 
+                to="/book-ride" 
+                className="w-full block bg-white text-blue-600 font-semibold py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors text-center"
+              >
+                Book Now →
+              </Link>
             </div>
             
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">

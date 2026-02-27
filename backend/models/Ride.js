@@ -1,7 +1,13 @@
 const mongoose = require('mongoose');
 
 const rideSchema = new mongoose.Schema({
-  rider: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  rider: { 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'User', 
+    // ✅ FIXED: Make optional
+    required: false, 
+    default: null 
+  },
   driver: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   pickup: {
     address: String,
@@ -13,8 +19,15 @@ const rideSchema = new mongoose.Schema({
     lat: Number,
     lng: Number
   },
-  status: { type: String, enum: ['requested', 'accepted', 'ongoing', 'completed', 'cancelled'], default: 'requested' },
-  fare: { type: Number, required: true },
+  status: { 
+    type: String, 
+    enum: ['requested', 'accepted', 'ongoing', 'completed', 'cancelled'], 
+    default: 'requested' 
+  },
+  fare: { 
+    type: Number, 
+    required: true 
+  },
   distance: Number,
   duration: Number
 }, { timestamps: true });

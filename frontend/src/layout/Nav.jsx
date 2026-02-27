@@ -35,13 +35,12 @@ export default function Nav() {
               Profile
             </Link>
             
-            <UserButton afterSignOutUrl="/">
-              <UserButton.MenuItems>
-                <UserButton.MenuItem>
-                  <SignOutButton />
-                </UserButton.MenuItem>
-              </UserButton.MenuItems>
-            </UserButton>
+            <UserButton />
+            <SignOutButton>
+              <button className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">
+                Sign Out
+              </button>
+            </SignOutButton>
           </div>
         </div>
       </div>
