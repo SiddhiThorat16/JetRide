@@ -56,6 +56,17 @@ export default function Nav() {
               History
             </Link>
 
+            <Link
+              to="/ratings"
+              className={`px-3 py-2 rounded-md font-medium transition-colors ${
+                location.pathname === "/ratings"
+                  ? "bg-yellow-100 text-yellow-700"
+                  : "text-gray-700 hover:text-yellow-600"
+              }`}
+            >
+              Ratings
+            </Link>
+
             <UserButton />
             <SignOutButton>
               <button className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-lg hover:bg-gray-200 transition-colors">

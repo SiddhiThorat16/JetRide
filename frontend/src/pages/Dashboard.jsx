@@ -24,8 +24,8 @@ export default function Dashboard() {
                     <p className="font-medium text-gray-900">Airport to Downtown</p>
                     <p className="text-sm text-gray-500">2 hours ago • ₹250</p>
                   </div>
-                  <span className="px-3 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-                    Completed
+                  <span className="px-3 py-1 bg-blue-100 text-blue-800 text-xs font-medium rounded-full hover:bg-blue-200 transition-colors cursor-pointer">
+                    Rate Driver
                   </span>
                 </div>
               </div>

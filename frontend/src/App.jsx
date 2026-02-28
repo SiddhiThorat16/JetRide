@@ -11,6 +11,7 @@ import Profile from "./pages/Profile";
 import BookRide from "./pages/BookRide";
 import DriverDashboard from "./pages/DriverDashboard";
 import RideHistory from "./pages/RideHistory";
+import RateDriver from './components/RateDriver'
 
 export default function App() {
   return (
@@ -25,7 +26,6 @@ export default function App() {
             </SignedOut>
           }
         />
-
         {/* Protected routes - only when signed IN */}
         <Route
           path="/dashboard"
@@ -35,7 +35,6 @@ export default function App() {
             </SignedIn>
           }
         />
-
         <Route
           path="/profile"
           element={
@@ -44,7 +43,6 @@ export default function App() {
             </SignedIn>
           }
         />
-
         <Route
           path="/book-ride"
           element={
@@ -53,7 +51,6 @@ export default function App() {
             </SignedIn>
           }
         />
-
         <Route
           path="/driver-dashboard"
           element={
@@ -62,7 +59,6 @@ export default function App() {
             </SignedIn>
           }
         />
-
         <Route
           path="/history"
           element={
@@ -72,10 +68,17 @@ export default function App() {
           }
         />
 
+        <Route
+          path="/ratings"
+          element={
+            <SignedIn>
+              <RateDriver />
+            </SignedIn>
+          }
+        />
         {/* Auth redirects */}
         <Route path="/sign-in/*" element={<RedirectToSignIn />} />
         <Route path="/sign-up/*" element={<RedirectToSignIn />} />
-
         {/* Catch all - redirect to dashboard if signed in, home if not */}
         <Route
           path="*"
